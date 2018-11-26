@@ -85,18 +85,18 @@ grafana_ldap:
   servers:
     host: 10.20.50.60
     port: 389 # 636 for SSL
-#    use_ssl: false
-#    start_tls: false
-#    ssl_skip_verify: false
+    use_ssl: false
+    start_tls: false
+    ssl_skip_verify: false
 #    root_ca_cert: /path/to/certificate.crt
-    bind_dn: "cn=grafanasrv,dc=seedcx,dc=com"
+    bind_dn: "grafanasrv@seedcx.com"
     bind_password: "{{ grafana_bind_password }}"
-    search_filter: "(cn=%s)" # "(sAMAccountName=%s)" on AD
+    search_filter: "(sAMAccountName=%s)" # "(sAMAccountName=%s)" on AD
     search_base_dns:
       - "dc=seedcx,dc=com"
-    group_search_filter: "(&(objectClass=posixGroup)(memberUid=%s))"
-    group_search_base_dns:
-      - "ou=Prometheus Users,dc=seedcx,dc=com"
+    #group_search_filter: "(&(objectClass=posixGroup)(memberUid=%s))"
+    #group_search_base_dns:
+    #  - "ou=Prometheus Users,dc=seedcx,dc=com"
     attributes:
       name: givenName
       surname: sn
@@ -107,8 +107,8 @@ grafana_ldap:
     - name: SeedCX
       id: 1
       groups:
-        - group_dn: "cn=Prometheus Users,ou=groups,dc=seedcx,dc=com"
-          org_role: Admin
+        - group_dn: "cn=Prometheus Users,ou=Security Groups,ou=Groups,ou=Seed CX,dc=seedcx,dc=com"
+          org_role: Viewer
 #        - group_dn: "cn=editors,ou=groups,dc=grafana,dc=org"
 #          org_role: Editor
 #        - group_dn: "*"
