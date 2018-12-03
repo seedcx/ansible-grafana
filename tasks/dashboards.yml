@@ -106,7 +106,7 @@
     method: POST
     body_format: json
     body: '{ "dashboard": {{ lookup("file", item) }}, "overwrite": true, "message": "Updated by ansible" }'
-  no_log: true
+  no_log: false
   with_fileglob:
     - "/tmp/dashboards/*"
 
