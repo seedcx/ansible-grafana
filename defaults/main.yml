@@ -109,6 +109,8 @@ grafana_ldap:
       groups:
         - group_dn: "cn=Prometheus Users,ou=Security Groups,ou=Groups,ou=Seed CX,dc=seedcx,dc=com"
           org_role: Viewer
+        - group_dn: "cn=Prometheus Admins,ou=Security Groups,ou=Groups,ou=Seed CX,dc=seedcx,dc=com"
+          org_role: Admin
 #        - group_dn: "cn=editors,ou=groups,dc=grafana,dc=org"
 #          org_role: Editor
 #        - group_dn: "*"
