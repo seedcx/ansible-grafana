@@ -50,6 +50,7 @@
       delay: 2
   when:
     - ansible_pkg_mgr == "apt"
+    - use_packagecloud is defined and use_packagecloud == True
   environment: "{{ grafana_environment }}"
 
 - name: Install Grafana
