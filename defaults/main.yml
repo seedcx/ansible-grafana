@@ -83,7 +83,7 @@ grafana_auth:
 grafana_ldap:
 #  verbose_logging: false
   servers:
-    host: 10.20.50.60
+    host: dc01-aws.infra.seedcx.net
     port: 389 # 636 for SSL
     use_ssl: false
     start_tls: false
